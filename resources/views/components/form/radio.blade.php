@@ -8,7 +8,7 @@
 
     <br />
 
-    <div id="{{ $id }}" class="@error($name) is-invalid @enderror">
+    <div id="{{ $id }}" class="clearfix @error($name) is-invalid @enderror">
         @for ($i = 0; $i < count($options); $i++)
             @php
                 $radioId = $id . $i;
@@ -17,9 +17,9 @@
                 $radioChecked = $isChecked(old($name, $radioValue));
             @endphp
 
-            <div class="form-check form-check-inline">
+            <div class="custom-control custom-radio d-inline mr-2">
                 <input
-                    class="form-check-input @error($name) is-invalid @enderror"
+                    class="custom-control-input @error($name) is-invalid @enderror"
                     type="radio"
                     name="{{ $name }}"
                     id="{{ $radioId }}"
@@ -28,7 +28,7 @@
                 />
 
                 <label
-                    class="form-check-label text-sm"
+                    class="custom-control-label text-sm"
                     for="{{ $radioId }}"
                 >
                     {{ $radioText }}

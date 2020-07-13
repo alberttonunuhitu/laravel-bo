@@ -18,7 +18,9 @@
     <x-card>
         <x-slot name="card_body">
             <x-form>
+                <x-form.radio />
 
+                <x-form.checkbox />
             </x-form>
         </x-slot>
     </x-card>
