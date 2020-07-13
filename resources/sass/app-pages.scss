@@ -9,12 +9,16 @@
 // ---------------------------------------------------
 @import '~bootstrap/scss/functions';
 @import 'bootstrap-variables';
-@import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/bootstrap';
 
 // Variables and Mixins
 // ---------------------------------------------------
 @import 'variables';
 @import 'mixins';
 
+// @import 'parts/core';
+// @import 'parts/components';
+@import 'forms';
+@import 'cards';
+@import 'buttons';
 @import 'parts/pages';

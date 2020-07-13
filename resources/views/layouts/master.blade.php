@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | @yield('content-header')</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <title>@yield('content-header') | {{ config('app.name') }}</title>
+
+    <!-- Font Awesome Icons -->
+    @fontawesome
+
+    @stack('page_styles')
+
+    <!-- overlayScrollbars -->
+    @overlayScrollbarsStyle
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini text-sm">
     <div class="wrapper">
@@ -67,12 +75,33 @@
     </div>
     <!-- ./wrapper -->
 
+    <x-modal
+        id="modal_logout"
+    >
+        <x-slot name="modal_body">
+
+        </x-slot>
+
+        <x-slot name="modal_footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </x-slot>
+    </x-modal>
+
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    @jqueryScript
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    @bootstrapScript
+    <!-- overlayScrollbars -->
+    @overlayScrollbarsScript
     <!-- App -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- PAGE PLUGINS -->
+    @stack('page_plugins')
+
+    <!-- PAGE SCRIPTS -->
+    @stack('page_scripts')
 </body>
 </html>

@@ -6,14 +6,23 @@ use Illuminate\View\Component;
 
 class Form extends Component
 {
+    public $action;
+    public $back;
+    public $method;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        $action = 'javascript:void(0)',
+        $back = 'javascript:void(0)',
+        $method = 'POST'
+    ) {
+        $this->action = $action;
+        $this->back = $back;
+        $this->method = $method;
     }
 
     /**

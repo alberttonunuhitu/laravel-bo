@@ -2,18 +2,25 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
 class Modal extends Component
 {
+    public $id;
+    public $title;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        $id = 'example_modal',
+        $title = 'Modal title'
+    ) {
+        $this->id = Str::camel($id);
+        $this->title = Str::title($title);
     }
 
     /**
