@@ -1,23 +1,35 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@push('page_styles')
+
+@endpush
+
+@push('breadcrumb')
+    <x-breadcrumb.item
+        label="Starter Page"
+        active
+    />
+@endpush
+
+@section('content-header', 'Starter Page')
+
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <x-card>
+        <x-slot name="card_body">
+            <x-form>
+                <x-form.radio />
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                <x-form.checkbox />
+            </x-form>
+        </x-slot>
+    </x-card>
 @endsection
+
+@push('page_plugins')
+
+@endpush
+
+@push('page_scripts')
+
+@endpush
