@@ -77,14 +77,31 @@
 
     <x-modal
         id="modal_logout"
+        title="Yakin ingin keluar dari aplikasi ?"
     >
         <x-slot name="modal_body">
-
+            Pilih "Keluar" di bawah ini jika Anda siap untuk keluar dari aplikasi.
         </x-slot>
 
         <x-slot name="modal_footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+
+                <button
+                    type="button"
+                    class="btn btn-flat btn-light"
+                    data-dismiss="modal"
+                >
+                    Batal
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-flat btn-primary"
+                >
+                    Keluar
+                </button>
+            </form>
         </x-slot>
     </x-modal>
 

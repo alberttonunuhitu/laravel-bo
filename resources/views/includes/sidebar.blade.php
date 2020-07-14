@@ -15,6 +15,10 @@
         />
     </a>
 
+    {{-- <a href="javascript:void(0)" class="brand-link text-center">
+        <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
+    </a> --}}
+
     <!-- Sidebar -->
     <x-sidebar>
         <x-sidebar.item
