@@ -8,8 +8,8 @@ use Illuminate\View\Component;
 class Radio extends Component
 {
     public $id;
-    public $name;
     public $label;
+    public $name;
     public $options;
     public $value;
     public $required;
@@ -20,16 +20,19 @@ class Radio extends Component
      * @return void
      */
     public function __construct(
-        $options = array(['text' => 'Radio 1', 'value' => 1], ['text' => 'Radio 2', 'value' => 2]),
-        $name = 'radio_options',
-        $label = 'Radio Options',
+        $label = 'Radio Button',
+        $name = 'radio_button',
+        array $options = array(
+            ['text' => 'Radio Option 1', 'value' => 1],
+            ['text' => 'Radio Option 2', 'value' => 2]
+        ),
         $value = 1,
-        $required = false
+        bool $required = false
     ) {
         $this->id = Str::camel('input_' . $name);
-        $this->options = $options;
-        $this->name = $name;
         $this->label = $label;
+        $this->name = $name;
+        $this->options = $options;
         $this->value = $value;
         $this->required = $required;
     }

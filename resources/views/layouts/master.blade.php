@@ -22,7 +22,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini text-sm">
+<body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -119,6 +119,10 @@
     @stack('page_plugins')
 
     <!-- PAGE SCRIPTS -->
-    @stack('page_scripts')
+    <script>
+        $(document).ready(function () {
+            @stack('page_scripts')
+        });
+    </script>
 </body>
 </html>

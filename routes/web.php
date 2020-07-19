@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@store')->name('home.store');

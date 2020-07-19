@@ -11,6 +11,7 @@ class Button extends Component
     public $label;
     public $variant;
     public $link;
+    public $icon;
 
     /**
      * Create a new component instance.
@@ -22,13 +23,15 @@ class Button extends Component
         $type = 'button',
         $label = 'Button',
         $variant = 'primary',
-        $link = 'javascript:void(0)'
+        $link = 'javascript:void(0)',
+        $icon = null
     ) {
         $this->id = $id;
         $this->type = $type;
         $this->label = $label;
         $this->variant = $variant;
         $this->link = $link;
+        $this->icon = $icon;
     }
 
     /**

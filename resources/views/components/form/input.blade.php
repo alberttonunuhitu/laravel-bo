@@ -6,37 +6,37 @@
     <div class="form-group">
         <label
             for="{{ $id }}"
-            class="text-sm"
         >
-            {{ $label }}@if (!$required) <span class="text-muted font-weight-light">(optional)</span> @endif
+            {{ $label }}
+            @if (!$required)
+                <span class="text-muted font-weight-light">(optional)</span>
+            @endif
         </label>
 
         @if ($readonly)
             <input
                 type="text"
                 id="{{ $id }}"
-                class="form-control-plaintext form-control-sm"
+                class="form-control-plaintext"
                 value="{{ $value }}"
                 readonly
             />
         @else
-
             <input
                 type="{{ $type }}"
                 id="{{ $id }}"
-                class="form-control form-control-sm @error($name) is-invalid @enderror"
+                class="form-control @error($name) is-invalid @enderror"
                 name="{{ $name }}"
                 value="{{ old($name, $value) }}"
                 placeholder="{{ $placeholder }}"
-                {{ $required ? 'required' : '' }}
                 {{ $autofocus ? 'autofocus' : '' }}
+                {{ $required ? 'required' : '' }}
             />
-
         @endif
 
         @if ($description)
             <small
-                id="{{ $helpBlock }}"
+                id="{{ $help_block }}"
                 class="form-text text-info"
             >
                 <i>{{ $description }}</i>
@@ -50,5 +50,7 @@
         @enderror
     </div>
 @else
-    <p class="text-sm text-danger">Tidak mendukung tipe inputan {{ $type }}.</p>
+    <p class="text-danger">
+        Tidak mendukung tipe inputan {{ $type }}.
+    </p>
 @endif

@@ -8,10 +8,10 @@ use Illuminate\View\Component;
 class Checkbox extends Component
 {
     public $id;
-    public $name;
     public $label;
+    public $name;
     public $options;
-    public $value;
+    public $values;
     public $required;
 
     /**
@@ -20,23 +20,23 @@ class Checkbox extends Component
      * @return void
      */
     public function __construct(
-        $options = array(['text' => 'Checkbox 1', 'value' => 1], ['text' => 'Checkbox 2', 'value' => 2]),
-        $name = 'checkbox_options',
-        $label = 'Checkbox Options',
-        $value = 1,
-        $required = false
+        $label = 'Checkbox',
+        $name = 'checkbox',
+        array $options = array(['text' => 'Checkbox 1', 'value' => 1], ['text' => 'Checkbox 2', 'value' => 2]),
+        array $values = array(),
+        bool $required = false
     ) {
         $this->id = Str::camel('input_' . $name);
-        $this->options = $options;
-        $this->name = $name;
         $this->label = $label;
-        $this->value = $value;
+        $this->name = $name;
+        $this->options = $options;
+        $this->values = $values;
         $this->required = $required;
     }
 
     public function isChecked($option)
     {
-        return $option == $this->value;
+        return in_array($option, $this->values);
     }
 
     /**

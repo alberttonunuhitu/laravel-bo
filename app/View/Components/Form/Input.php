@@ -7,17 +7,17 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
+    public $type;
     public $id;
     public $label;
-    public $type;
     public $name;
     public $value;
     public $placeholder;
+    public $help_block;
+    public $description;
+    public $autofocus;
     public $readonly;
     public $required;
-    public $autofocus;
-    public $description;
-    public $helpBlock;
 
     /**
      * Create a new component instance.
@@ -25,27 +25,27 @@ class Input extends Component
      * @return void
      */
     public function __construct(
-        $label = "Example",
-        $type = "text",
-        $name = "example",
-        $value = "",
-        $placeholder = "",
-        $readonly = false,
-        $required = false,
-        $autofocus = false,
-        $description = ''
+        $type = 'text',
+        $label = 'Example',
+        $name = 'example',
+        $value = '',
+        $placeholder = '',
+        $description = '',
+        bool $autofocus = false,
+        bool $readonly = false,
+        bool $required = false
     ) {
-        $this->label = $label;
         $this->type = $type;
         $this->id = Str::camel('input_' . $name);
+        $this->label = $label;
         $this->name = $name;
         $this->value = $value;
         $this->placeholder = $placeholder;
+        $this->help_block = Str::camel($name . '_Help_Block');
+        $this->description = $description;
+        $this->autofocus = $autofocus;
         $this->readonly = $readonly;
         $this->required = $required;
-        $this->autofocus = $autofocus;
-        $this->description = $description;
-        $this->helpBlock = Str::camel($name . '_Help_Block');
     }
 
     /**
