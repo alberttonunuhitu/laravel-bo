@@ -12,7 +12,7 @@ class Datepicker extends Component
     public $name;
     public $value;
     public $required;
-    public $helpBlock;
+    public $help_block;
 
     /**
      * Create a new component instance.
@@ -20,17 +20,17 @@ class Datepicker extends Component
      * @return void
      */
     public function __construct(
-        $label = 'Input Date',
-        $name = 'datetimepicker',
+        $label = 'Datepicker',
+        $name = 'datepicker',
         $value = '',
-        $required = false
+        bool $required = false
     ) {
         $this->id = Str::camel('input_' . $name);
         $this->label = $label;
         $this->name = $name;
         $this->value = $value;
         $this->required = $required;
-        $this->helpBlock = Str::camel($name . '_Help_Block');
+        $this->help_block = Str::camel($name . '_Help_Block');
     }
 
     /**

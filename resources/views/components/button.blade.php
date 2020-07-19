@@ -10,7 +10,7 @@
             type="{{ $type }}"
             class="btn btn-flat {{ $variant_class }}"
         >
-            {{ $label }}
+            @if($icon)<i class="fas fa-{{ $icon }} fa-fw"></i>&nbsp;@endif {{ $label }}
         </button>
     @else
         <a
@@ -19,7 +19,7 @@
             role="button"
             class="btn btn-flat {{ $variant_class }}"
         >
-            {{ $label }}
+            @if($icon)<i class="fas fa-{{ $icon }} fa-fw"></i>&nbsp;@endif {{ $label }}
         </a>
     @endif
 @else

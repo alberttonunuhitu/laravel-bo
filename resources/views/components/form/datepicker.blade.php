@@ -1,13 +1,12 @@
 <div class="form-group">
     <label
-        class="text-sm"
         for="{{ $id }}"
     >
         {{ $label }}@if (!$required) <span class="text-muted font-weight-light">(optional)</span> @endif
     </label>
 
     <div
-        class="input-group input-group-sm date @error($name) is-invalid @enderror"
+        class="input-group date @error($name) is-invalid @enderror"
         id="{{ $id }}"
         data-target-input="nearest"
     >
@@ -33,7 +32,7 @@
     </div>
 
     <small
-        id="{{ $helpBlock }}"
+        id="{{ $help_block }}"
         class="form-text text-info text-bold"
     >
         Format: <i>Tahun-Bulan-Tanggal</i>
@@ -47,11 +46,9 @@
 </div>
 
 @push('page_scripts')
-    <script>
-        $('#{!! $id !!}').datetimepicker({
-            locale: 'id',
-            ignoreReadonly: true,
-            format: 'YYYY-MM-DD'
-        });
-    </script>
+    $('#{!! $id !!}').datetimepicker({
+        locale: 'id',
+        ignoreReadonly: true,
+        format: 'YYYY-MM-DD'
+    });
 @endpush

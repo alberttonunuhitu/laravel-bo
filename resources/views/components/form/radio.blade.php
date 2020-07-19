@@ -1,7 +1,6 @@
 <div class="form-group">
     <label
         for="{{ $id }}"
-        class="text-sm"
     >
         {{ $label }} @if (!$required) <span class="text-muted font-weight-light">(optional)</span> @endif
     </label>
@@ -11,27 +10,27 @@
     <div id="{{ $id }}" class="clearfix @error($name) is-invalid @enderror">
         @for ($i = 0; $i < count($options); $i++)
             @php
-                $radioId = $id . $i;
-                $radioText = $options[$i]['text'];
-                $radioValue = $options[$i]['value'];
-                $radioChecked = $isChecked(old($name, $radioValue));
+                $radio_id = $id . $i;
+                $radio_text = $options[$i]['text'];
+                $radio_value = $options[$i]['value'];
+                $radio_checked = $isChecked(old($name, $radio_value));
             @endphp
 
             <div class="custom-control custom-radio d-inline mr-2">
                 <input
-                    class="custom-control-input @error($name) is-invalid @enderror"
                     type="radio"
+                    id="{{ $radio_id }}"
+                    class="custom-control-input @error($name) is-invalid @enderror"
                     name="{{ $name }}"
-                    id="{{ $radioId }}"
-                    value="{{ $radioValue }}"
-                    {{ $radioChecked ? 'checked' : '' }}
+                    value="{{ $radio_value }}"
+                    {{ $radio_checked ? 'checked' : '' }}
                 />
 
                 <label
-                    class="custom-control-label text-sm"
-                    for="{{ $radioId }}"
+                    class="custom-control-label"
+                    for="{{ $radio_id }}"
                 >
-                    {{ $radioText }}
+                    {{ $radio_text }}
                 </label>
             </div>
         @endfor
