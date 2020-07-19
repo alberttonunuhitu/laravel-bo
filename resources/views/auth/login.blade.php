@@ -6,7 +6,16 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <b>{{ config('app.name') }}</b>
+            <img
+                src="{{ asset('illustrations/laravel-mark-cmyk-red.png') }}"
+                alt="App Brand Logo"
+                width="100"
+            >
+            <p
+                class="font-weight-normal text-danger"
+            >
+                {{ config('app.name') }}
+            </p>
         </div>
         <!-- /.login-logo -->
 

@@ -14,6 +14,9 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::include('includes.seo', 'seo');
+        Blade::include('includes.favicon', 'favicon');
+
         Blade::include('includes.navbar', 'navbar');
         Blade::include('includes.sidebar', 'sidebar');
         Blade::include('includes.footer', 'footer');
