@@ -1,23 +1,15 @@
 <aside class="main-sidebar sidebar-dark-primary">
     <!-- Brand Logo -->
-    <a href="javascript:void(0)" class="brand-link logo-switch">
+    <a href="{{ route('home') }}" class="brand-link navbar-light">
         <img
-            src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/img/AdminLTELogo.png"
-            alt="AdminLTE Docs Logo Small"
-            class="brand-image-xl logo-xs"
+            src="{{ asset('illustrations/laravel-mark-cmyk-red.png') }}"
+            alt="App Brand Logo"
+            class="brand-image"
         />
-
-        <img
-            src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/img/AdminLTELogo.png"
-            alt="AdminLTE Docs Logo Large"
-            class="brand-image-xs logo-xl"
-            style="left: 12px"
-        />
+        <span class="brand-text font-weight-normal text-danger">
+            {{ config('app.name') }}
+        </span>
     </a>
-
-    {{-- <a href="javascript:void(0)" class="brand-link text-center">
-        <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
-    </a> --}}
 
     <!-- Sidebar -->
     <x-sidebar>
