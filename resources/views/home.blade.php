@@ -6,21 +6,23 @@
 @endpush
 
 @push('breadcrumb')
-    <x-breadcrumb.item
-        label="Starter Page"
-        active
-    />
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item">
+            <a href="{{ route('home') }}">
+                Home
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Starter Page
+        </li>
+    </ol>
 @endpush
 
 @section('content-header', 'Starter Page')
 
 @section('content')
     <x-card>
-        <x-slot name="card_body">
-            <x-form action="">
-                <x-button />
-            </x-form>
-        </x-slot>
+
     </x-card>
 @endsection
 

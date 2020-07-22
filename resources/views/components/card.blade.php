@@ -1,17 +1,17 @@
 <div class="card">
-    @if ($card_header ?? false)
+    @if ($header ?? false)
         <div class="card-header">
-            {{ $card_header }}
+            {{ $header }}
         </div>
     @endif
 
     <div class="card-body">
-        {{ $card_body ?? $slot }}
+        {{ $body ?? $slot }}
     </div>
 
-    @if ($card_footer ?? false)
+    @if ($footer ?? false)
         <div class="card-footer">
-            {{ $card_footer }}
+            {{ $footer }}
         </div>
     @endif
 </div>
