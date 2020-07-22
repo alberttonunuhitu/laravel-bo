@@ -46,13 +46,7 @@
                         <!-- /.col -->
 
                         <div class="col-sm-6">
-                            <x-breadcrumb>
-                                <x-breadcrumb.item
-                                    label="Home"
-                                    link="/"
-                                />
-                                @stack('breadcrumb')
-                            </x-breadcrumb>
+                            @stack('breadcrumb')
                         </div>
                         <!-- /.col -->
                     </div><!-- /.row -->
