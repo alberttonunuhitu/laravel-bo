@@ -6,6 +6,7 @@
     <div class="form-group">
         <label
             for="{{ $id }}"
+            class="text-sm"
         >
             {{ $label }}
             @if (!$required)
@@ -17,7 +18,7 @@
             <input
                 type="text"
                 id="{{ $id }}"
-                class="form-control-plaintext"
+                class="form-control-plaintext form-control-sm"
                 value="{{ $value }}"
                 readonly
             />
@@ -25,7 +26,7 @@
             <input
                 type="{{ $type }}"
                 id="{{ $id }}"
-                class="form-control @error($name) is-invalid @enderror"
+                class="form-control form-control-sm @error($name) is-invalid @enderror"
                 name="{{ $name }}"
                 value="{{ old($name, $value) }}"
                 placeholder="{{ $placeholder }}"

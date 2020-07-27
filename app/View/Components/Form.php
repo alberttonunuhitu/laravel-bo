@@ -17,7 +17,7 @@ class Form extends Component
      */
     public function __construct(
         $action = 'javascript:void(0)',
-        $back = 'javascript:void(0)',
+        $back = false,
         $method = 'POST'
     ) {
         $this->action = $action;

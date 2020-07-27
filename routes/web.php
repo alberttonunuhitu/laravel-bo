@@ -13,11 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('pages.index');
-// });
+// Auth::routes(['register' => false]);
 
-Auth::routes(['register' => false]);
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::post('/', 'HomeController@store')->name('home.store');
+
+Route::put('me/password', 'SettingController@updatePassword')->name('me.password');
+Route::put('me/profile', 'SettingController@updateProfile')->name('me.profile');
+
+Route::resource('roles', 'RoleController')->except([
+    'index', 'create', 'store', 'show', 'destroy'
+]);
+
+Route::prefix('settings')->group(function () {
+    Route::get('access', 'AccessController@index')->name('settings.access');
+    Route::get('profile', 'SettingController@profile')->name('settings.profile');
+    Route::get('security', 'SettingController@security')->name('settings.security');
+});
+

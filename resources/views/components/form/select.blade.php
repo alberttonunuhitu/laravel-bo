@@ -1,6 +1,7 @@
 <div class="form-group">
     <label
         for="{{ $id }}"
+        class="text-sm"
     >
         {{ $label }}@if (!$required) <span class="text-muted font-weight-light">(optional)</span> @endif
     </label>
@@ -8,7 +9,7 @@
     <select
         name="{{ $name }}"
         id="{{ $id }}"
-        class="form-control{{ $select2 ? ' select2bs4' : '' }} @error($name) is-invalid @enderror"
+        class="form-control form-control-sm{{ $select2 ? ' select2bs4' : '' }} @error($name) is-invalid @enderror"
         {{ $required ? 'required' : '' }}
     >
         @foreach ($options as $option)
