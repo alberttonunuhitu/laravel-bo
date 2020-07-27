@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
 @push('page_styles')
-    @select2Style
-    @tempusdominusStyle
+
 @endpush
 
 @push('breadcrumb')
@@ -14,22 +13,19 @@
         </li>
 
         <li class="breadcrumb-item active" aria-current="page">
-            Beranda
+            Pengaturan
         </li>
     </ol>
 @endpush
 
-@section('content-header', 'Beranda')
+@section('content-header', 'Pengaturan')
 
 @section('content')
-    <x-card>
 
-    </x-card>
 @endsection
 
 @push('page_plugins')
-    @select2Script
-    @tempusdominusScript
+
 @endpush
 
 @push('page_scripts')

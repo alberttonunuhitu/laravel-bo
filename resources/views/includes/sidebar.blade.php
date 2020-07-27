@@ -14,25 +14,38 @@
     <!-- Sidebar -->
     <x-sidebar>
         <x-sidebar.item
-            label="Starter Pages"
+            label="Beranda"
             icon="tachometer-alt"
-            treeview
-            active
-        >
-            <x-sidebar.item
-                label="Active Page"
-                active
-            />
-
-            <x-sidebar.item
-                label="Inactive Page"
-            />
-        </x-sidebar.item>
+            link="{{ route('home') }}"
+            active="{{ request()->is('/') }}"
+        />
 
         <x-sidebar.item
-            label="Simple Link"
-            icon="th"
-        />
+            label="Pengaturan"
+            icon="cog"
+            treeview
+            active="{{ request()->is('settings*') }}"
+        >
+            <x-sidebar.item
+                label="Profil"
+                link="{{ route('settings.profile') }}"
+                active="{{ request()->is('settings/profile*') }}"
+            />
+
+            <x-sidebar.item
+                label="Keamanan"
+                link="{{ route('settings.security') }}"
+                active="{{ request()->is('settings/security*') }}"
+            />
+
+            @can('access settings')
+                <x-sidebar.item
+                    label="Hak Akses"
+                    link="{{ route('settings.access') }}"
+                    active="{{ request()->is('settings/access*') }}"
+                />
+            @endcan
+        </x-sidebar.item>
     </x-sidebar.item>
     <!-- /.sidebar -->
   </aside>

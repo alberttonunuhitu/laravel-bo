@@ -1,6 +1,7 @@
 <div class="form-group">
     <label
         for="{{ $id }}"
+        class="text-sm"
     >
         {{ $label }}@if (!$required) <span class="text-muted font-weight-light">(optional)</span> @endif
     </label>
@@ -12,7 +13,7 @@
     >
         <input
             type="text"
-            class="form-control datetimepicker-input @error($name) is-invalid @enderror"
+            class="form-control form-control-sm datetimepicker-input @error($name) is-invalid @enderror"
             data-target="#{{ $id }}"
             name="{{ $name }}"
             value="{{ $value }}"

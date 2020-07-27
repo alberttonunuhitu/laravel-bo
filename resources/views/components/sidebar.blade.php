@@ -1,5 +1,5 @@
 @php
-    $auth_user = auth::user();
+    $auth_user = Auth::user();
 @endphp
 
 <div class="sidebar">

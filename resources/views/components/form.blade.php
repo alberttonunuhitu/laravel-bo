@@ -10,12 +10,14 @@
     <hr />
 
     <div class="text-right">
-        <x-button
-            type="link"
-            link="{{ $back }}"
-            label="Kembali"
-            variant="light"
-        />
+        @if ($back)
+            <x-button
+                type="link"
+                link="{{ $back }}"
+                label="Kembali"
+                variant="light"
+            />
+        @endif
 
         <x-button
             type="submit"

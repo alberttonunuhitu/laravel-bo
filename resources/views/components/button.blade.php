@@ -8,7 +8,7 @@
         <button
             id="{{ $id }}"
             type="{{ $type }}"
-            class="btn btn-flat {{ $variant_class }}"
+            class="btn btn-flat btn-sm {{ $variant_class }}"
         >
             @if($icon)<i class="fas fa-{{ $icon }} fa-fw"></i>&nbsp;@endif {{ $label }}
         </button>
@@ -17,7 +17,7 @@
             id="{{ $id }}"
             href="{{ $link }}"
             role="button"
-            class="btn btn-flat {{ $variant_class }}"
+            class="btn btn-flat btn-sm {{ $variant_class }}"
         >
             @if($icon)<i class="fas fa-{{ $icon }} fa-fw"></i>&nbsp;@endif {{ $label }}
         </a>
