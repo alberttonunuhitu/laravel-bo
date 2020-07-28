@@ -20,6 +20,15 @@
             active="{{ request()->is('/') }}"
         />
 
+        @can('read users')
+            <x-sidebar.item
+                label="Pengguna"
+                icon="users"
+                link="{{ route('users.index') }}"
+                active="{{ request()->is('users*') }}"
+            />
+        @endcan
+
         <x-sidebar.item
             label="Pengaturan"
             icon="cog"
