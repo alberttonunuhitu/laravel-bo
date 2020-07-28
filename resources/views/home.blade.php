@@ -21,9 +21,7 @@
 @section('content-header', 'Beranda')
 
 @section('content')
-    <x-card>
 
-    </x-card>
 @endsection
 
 @push('page_plugins')
