@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
 @push('page_styles')
-    @select2Style
-    @tempusdominusStyle
+
 @endpush
 
 @push('breadcrumb')
@@ -28,8 +27,7 @@
 @endsection
 
 @push('page_plugins')
-    @select2Script
-    @tempusdominusScript
+
 @endpush
 
 @push('page_scripts')

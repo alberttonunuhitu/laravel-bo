@@ -19,6 +19,19 @@ class RoleRepository implements RoleRepositoryInterface
         return $this->model->with('users')->get();
     }
 
+    public function forOptions()
+    {
+        return $this->model->select('id', 'name')
+            ->where('name', '!=', 'superadmin')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'text' => $item->name,
+                    'value' => $item->id
+                ];
+            })->toArray();
+    }
+
     public function getById($id)
     {
         return $this->model->with('permissions')->findOrFail($id);

@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth::routes(['register' => false]);
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -34,3 +32,28 @@ Route::prefix('settings')->group(function () {
     Route::get('security', 'SettingController@security')->name('settings.security');
 });
 
+Route::name('users.')->group(function () {
+    Route::get('users', 'UserController@index')
+        ->middleware('permission:read users')
+        ->name('index');
+
+    Route::get('users/create', 'UserController@create')
+        ->middleware('permission:create users')
+        ->name('create');
+
+    Route::post('users', 'UserController@store')
+        ->middleware('permission:create users')
+        ->name('store');
+
+    Route::get('users/{id}/edit', 'UserController@edit')
+        ->middleware('permission:update users')
+        ->name('edit');
+
+    Route::put('users/{id}', 'UserController@update')
+        ->middleware('permission:update users')
+        ->name('update');
+
+    Route::delete('users/{id}', 'UserController@destroy')
+        ->middleware('permission:delete users')
+        ->name('destroy');
+});
